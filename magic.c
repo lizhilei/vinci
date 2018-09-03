@@ -20,11 +20,11 @@ Image * readFile(char *path) {
     return img;
 }
 
-int create_dir(char *dir) {
+int create_dir(const char *dir) {
     char tmp [MaxTextExtent] = "";
     char pDir [MaxTextExtent] = "";
     strcat(tmp, dir);
-    strcat(pDir,dirname(dir));
+    strcat(pDir,dirname(tmp));
 
     if(access(dir, 0)!=0)
     {
@@ -42,7 +42,7 @@ int create_dir(char *dir) {
 
 }
 
-unsigned int writeFile(char *path, Image *image) {
+unsigned int writeFile(const char *path, Image *image) {
     ImageInfo *imageInfo;
     imageInfo=CloneImageInfo(0);
     ExceptionInfo exception;

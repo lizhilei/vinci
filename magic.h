@@ -10,7 +10,7 @@
 Image * readFile(char *path);
 Image * blob2image( const void *blob, const size_t length);
 Image * chop(const Image *image, int width, int height);
-unsigned int writeFile(char *path, Image *image);
+unsigned int writeFile(const char *path, Image *image);
 void * image2blob(Image *image, size_t *length);
 
 
