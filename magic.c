@@ -20,30 +20,35 @@ Image * readFile(char *path) {
     return img;
 }
 
-unsigned int writeFile(char *path, Image *image) {
-    ImageInfo *imageInfo;
-    imageInfo=CloneImageInfo(0);
-    ExceptionInfo exception;
-    GetExceptionInfo(&exception);
-    char dir2 [MaxTextExtent] ="";
-    char dir1 [MaxTextExtent] ="";
-    strcat(dir2,dirname(dirname(path)));
-    strcat(dir1,dirname(path));
-    if(access(dir2, 0)!=0)
+int	create_dir(const char *dir) {
+    char pDir [MaxTextExtent] = "";
+    strcat(pDir,dirname(dir));
+    if(access(dir, 0)!=0)
     {
-        if(mkdir(dir2, 0755)==-1)
+        if(access(pDir, 0)!=0)
+        {
+            create_dir(pDir);
+        }
+        if(mkdir(dir, 0777)==-1)
         {
             printf("mkdir   error\n");
             return -1;
         }
     }
-    if(access(dir1, 0)!=0)
-    {
-        if(mkdir(dir1, 0755)==-1)
-        {
-            printf("mkdir   error\n");
-            return -1;
-        }
+    return 1;
+
+}
+
+unsigned int writeFile(char *path, Image *image) {
+    ImageInfo *imageInfo;
+    imageInfo=CloneImageInfo(0);
+    ExceptionInfo exception;
+    GetExceptionInfo(&exception);
+    char dir [MaxTextExtent] ="";
+    strcat(dir,dirname(path));
+    if (!create_dir(dir)) {
+        printf("mkdir   error\n");
+        return -1;
     }
 
     (void) strcpy(image->filename, path);
