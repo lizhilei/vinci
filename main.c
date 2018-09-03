@@ -97,8 +97,8 @@ int main () {
 
     while (FCGI_Accept() >= 0) {
         num = 0;
-        strncpy(source_path, "/Users/zhilei3/CLionProjects/Vinci/simg/", MaxTextExtent-1 );
-        strncpy(save_path, "/Users/zhilei3/CLionProjects/Vinci/img/", MaxTextExtent-1 );
+        strncpy(source_path, "./simg/", MaxTextExtent-1 );
+        strncpy(save_path, "./img/", MaxTextExtent-1 );
         strncpy(img_url, "http://img.xczfw.cn/", MaxTextExtent-1 );
         script_name = getenv("SCRIPT_NAME");
         ptr = strtok(script_name, "/");
