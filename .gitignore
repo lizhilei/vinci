@@ -60,9 +60,5 @@ Makefile
 Vinci
 Vinci.cbp
 .DS_Store
-.idea/Vinci.iml
-.idea/codeStyles/
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
+.idea/
 CMakeCache.txt
