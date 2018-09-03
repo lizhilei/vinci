@@ -160,7 +160,7 @@ int main () {
 
         deal_img:
         image_r = chop(image, width, height);
-//        writeFile(save_path, image_r);
+        writeFile(save_path, image_r);
 
         blob = malloc(sizeof(struct imgBlob));
         blob->memory = image2blob(image_r, &blob->size);
