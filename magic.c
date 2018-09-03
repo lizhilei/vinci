@@ -20,9 +20,10 @@ Image * readFile(char *path) {
     return img;
 }
 
-int	create_dir(const char *dir) {
+int create_dir(char *dir) {
     char pDir [MaxTextExtent] = "";
     strcat(pDir,dirname(dir));
+
     if(access(dir, 0)!=0)
     {
         if(access(pDir, 0)!=0)
@@ -45,7 +46,9 @@ unsigned int writeFile(char *path, Image *image) {
     ExceptionInfo exception;
     GetExceptionInfo(&exception);
     char dir [MaxTextExtent] ="";
-    strcat(dir,dirname(path));
+    char tmp [MaxTextExtent] = "";
+    strcat(tmp, path);
+    strcat(dir,dirname(tmp));
     if (!create_dir(dir)) {
         printf("mkdir   error\n");
         return -1;
