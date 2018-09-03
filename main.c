@@ -156,7 +156,9 @@ int main () {
         ex:
         printf("HTTP/1.0 200 OK\r\n");
         printf("\r\n");
-        printf("ex_error");
+        printf("%s\r\n", source_path);
+        printf("%s\r\n", save_path);
+        printf("%s\r\n", img_url);
 
         goto next;
 
