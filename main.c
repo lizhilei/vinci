@@ -33,43 +33,6 @@ static void PrintEnv(char *label, char **envp)
 }
 
 int main () {
-
-
-
-//    FILE *fp = NULL;
-//    char buf[11] = "";
-//
-//    Image *image1 = (Image *) NULL;
-
-//
-//
-//
-//    FCGI_FILE* fp123;
-//    size_t size;
-//    int
-//        arg = 1,
-//        exit_status = 0,
-//        width = 0,
-//        height = 0;
-//    char
-//        infile[MaxTextExtent],
-//        outfile[MaxTextExtent],
-//        outfile1[MaxTextExtent];
-//
-//
-//
-//
-//
-//    (void) strncpy(infile, "https://wx3.sinaimg.cn/mw690/005WChxigy1fus6j8vd6tj31oh2ipkjo.jpg", MaxTextExtent-1 );
-//    (void) strncpy(outfile, "/Users/zhilei3/CLionProjects/Vinci/img/xxx.jpg", MaxTextExtent-1 );
-//    (void) strncpy(outfile1, "/Users/zhilei3/CLionProjects/Vinci/img/xxx1.jpg", MaxTextExtent-1 );
-
-
-//    struct imgBlob *blob = getBlob(infile);
-//    DEL_BLOB(blob)
-
-
-
     char **   initialEnv = environ;
     char **   params = malloc(3 * sizeof(char*));
     char *    ptr = NULL;
@@ -97,8 +60,8 @@ int main () {
 
     while (FCGI_Accept() >= 0) {
         num = 0;
-        strncpy(source_path, "./simg/", MaxTextExtent-1 );
-        strncpy(save_path, "./img/", MaxTextExtent-1 );
+        strncpy(source_path, "simg/", MaxTextExtent-1 );
+        strncpy(save_path, "img/", MaxTextExtent-1 );
         strncpy(img_url, "http://img.xczfw.cn/", MaxTextExtent-1 );
         script_name = getenv("SCRIPT_NAME");
         ptr = strtok(script_name, "/");
