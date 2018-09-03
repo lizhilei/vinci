@@ -21,7 +21,9 @@ Image * readFile(char *path) {
 }
 
 int create_dir(char *dir) {
+    char tmp [MaxTextExtent] = "";
     char pDir [MaxTextExtent] = "";
+    strcat(tmp, dir);
     strcat(pDir,dirname(dir));
 
     if(access(dir, 0)!=0)
