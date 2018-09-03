@@ -39,7 +39,6 @@ int create_dir(const char *dir) {
         }
     }
     return 1;
-
 }
 
 unsigned int writeFile(const char *path, Image *image) {
@@ -63,7 +62,6 @@ unsigned int writeFile(const char *path, Image *image) {
         return 0;
     }
     return 1;
-
 }
 
 Image * blob2image(const void *blob, const size_t length) {
@@ -116,6 +114,12 @@ Image * chop(const Image *image, int width, int height) {
         image1 = ChopImage(image, chop_info, &exception);
         chop_info->x = (image->rows / height_f * width_f);
         image2 = ChopImage(image1, chop_info, &exception);
+    } else{
+        chop_info->width = 0;
+        chop_info->height = 0;
+        chop_info->x = 0;
+        chop_info->y = 0;
+        image2 = ChopImage(image, chop_info, &exception);
     }
     DestroyImage(image1);
     free(chop_info);
